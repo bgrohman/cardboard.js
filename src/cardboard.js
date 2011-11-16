@@ -12,6 +12,11 @@
     var modules = {};
     globals.exports = {};
 
+    /**
+     * Returns the module associated with the given module id.
+     * @param moduleId
+     * @throws exception when the module is missing
+     */
     function require(moduleId) {
         if (typeof modules[moduleId] === 'undefined') {
             throw "Missing module '" + moduleId + "'";
@@ -20,6 +25,13 @@
         return modules[moduleId];
     }
 
+    /**
+     * Defines a module.
+     * @param moduleId
+     * @param dependencies  optional array of module ids
+     * @param definition    object, or function that returns an object
+     * or uses the global export object to set properties.
+     */
     function define(/*moduleId, dependencies, definition*/) {
         var moduleId = arguments[0],
             dependencies,
