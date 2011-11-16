@@ -1,0 +1,1 @@
+cardboard.js is a synchronous Asynchronous Module Definition (AMD) implementation designed to provide CommonJS module definition features without loading modules asynchronously.

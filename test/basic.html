@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>cardboard.js - basic test</title>
+        <script src="../src/cardboard.js"></script>
+        <script>
+            define('foo', {
+                f: function() { console.log('foo'); }
+            });
+
+            define('bar', ['foo'], function(foo) {
+                return {
+                    f: function() { foo.f(); console.log('bar'); }
+                };
+            });
+
+            define('baz', ['foo', 'bar'], function(foo, bar) {
+                exports.f = function() {
+                    foo.f();
+                    bar.f();
+                    console.log('baz');
+                };
+            });
+
+            define('foo.bar.baz', function() {
+                var foo = require('foo'),
+                    bar = require('bar'),
+                    baz = require('baz');
+
+                exports.f = function() {
+                    foo.f();
+                    bar.f();
+                    baz.f();
+                    console.log('foo.bar.baz');
+                };
+            });
+
+            try {
+                define('fail', ['oops'], function(missing) {
+                });
+            } catch (e) {
+                console.log(e);
+            }
+
+            try {
+                define('fail', function() {
+                    require('oh noes');
+                });
+            } catch (e) {
+                console.log(e);
+            }
+
+            (function() {
+                cardboard.debug();
+                var foobarbaz = require('foo.bar.baz');
+                foobarbaz.f(); 
+            })();
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
