@@ -71,6 +71,8 @@
     globals.require = require;
     globals.define = define;
     globals.cardboard = {
+        require: require,
+        define: define,
         debug: function() {
             console.log('cardboard.js debug:');
             console.log(modules);
