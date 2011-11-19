@@ -83,10 +83,26 @@ test('require with a missing module', function() {
     raises(function() {
         require('oh noes');
     });
+
     raises(function() {
         define('fail', function() { require('oh noes'); });
     });
 });
+
+test('define with wrong arguments', function() {
+    raises(function() {
+        define('blah');
+    });
+
+    raises(function() {
+        define('blah', 'blah', 'blah', 'blah');
+    });
+
+    raises(function() {
+        define('blah', 1, 1);
+    });
+});
+
 </script>
 </head>
 <body>

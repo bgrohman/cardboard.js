@@ -52,6 +52,10 @@
             definition = arguments[2];
         }
 
+        if (!(dependencies instanceof Array)) {
+            throw "Expected array of dependencies";
+        }
+
         globals.exports = {};
 
         if (typeof definition === 'function') {
