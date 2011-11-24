@@ -1,7 +1,7 @@
 cardboard.js
 ============
 
-cardboard.js is a CommonJS module definition implementation for use in a browser environment.
+cardboard.js is a [CommonJS module definition](http://www.commonjs.org/specs/modules/1.0/) implementation for use in a browser environment.
 
 Including cardboard.js will create global **define** and **require** functions plus an **exports** object for use in module definitions. Each of those objects (define, require, and exports) also exists as a property of the global cardboard object.
 
