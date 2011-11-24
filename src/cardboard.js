@@ -1,7 +1,5 @@
 /**
- * CommonJS Module Implementation
- *
- * Creates a CommonJS module definition implementation for use in browser 
+ * CommonJS module definition implementation for use in browser 
  * environments.
  *
  * @author  Bryan Grohman
