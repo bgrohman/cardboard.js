@@ -11,4 +11,4 @@ cardboard.js aims to provide a simple CommonJS module definition implementation 
 
 Because cardboard.js does not load any required modules, it is still necessary to include the appropriate script files (in the appropriate order) in the HTML.
 
-cardboard.js is intended to be used in conjunction with a server-side build process for combining multiple files into a single script or small set of scripts.
+cardboard.js is intended to be used in conjunction with a server-side build process for combining multiple files into a single script or small set of scripts rather than using an [Asynchronous Module Definition (AMD)](https://github.com/amdjs/amdjs-api/wiki/AMD) library.
