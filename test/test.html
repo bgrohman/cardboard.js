@@ -73,6 +73,30 @@ test('a module using require', function() {
     require('foo.bar.baz').f();
 });
 
+test('a module with require and exports as dependencies', function() {
+    cardboard.define('this.is.a.test', ['require', 'exports'], function(require, exports) {
+        ok(require);
+        ok(exports);
+        exports.require = require;
+    });
+
+    ok(cardboard.require('this.is.a.test'));
+    ok(cardboard.require('this.is.a.test').require);
+    deepEqual(cardboard.require, cardboard.require('this.is.a.test').require);
+});
+
+test('a module with no dependencies using require and exports', function() {
+    define('wee', function(require, exports) {
+        ok(require);
+        ok(exports);
+        exports.require = require;
+    });
+
+    ok(cardboard.require('wee'));
+    ok(cardboard.require('wee').require);
+    deepEqual(cardboard.require, cardboard.require('wee').require);
+});
+
 test('a missing dependency', function() {
     raises(function() {
         define('fail', ['oops'], function(missing) {});
@@ -101,6 +125,18 @@ test('define with wrong arguments', function() {
     raises(function() {
         define('blah', 1, 1);
     });
+});
+
+test('redefining a module', function() {
+    var oldFoo = require('foo');
+
+    define('foo', function() {
+        exports.f = 1;
+    });
+
+    notEqual(oldFoo, require('foo')); 
+    notEqual(oldFoo.f, require('foo').f); 
+    equal(require('foo').f, 1);
 });
 
 </script>
