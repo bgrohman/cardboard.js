@@ -1,12 +1,11 @@
 /**
  * CommonJS Module Implementation
  *
- * Creates a CommonJS module defintion implementation for use in browser 
+ * Creates a CommonJS module definition implementation for use in browser 
  * environments.
  *
- * @see https://github.com/bgrohman/cardboard.js for details.
- *
  * @author  Bryan Grohman
+ * @see https://github.com/bgrohman/cardboard.js for details.
  */
 (function(globals) {
 
