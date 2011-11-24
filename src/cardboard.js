@@ -7,8 +7,8 @@
  */
 (function(globals) {
 
-    var modules = {};
-    globals.exports = {};
+    var modules = {},
+        exports = {};
 
     /**
      * Returns the module associated with the given module id.
@@ -84,9 +84,11 @@
 
     globals.require = require;
     globals.define = define;
+    globals.exports = exports;
     globals.cardboard = {
         require: require,
         define: define,
+        exports: exports,
         debug: function() {
             console.log('cardboard.js debug:');
             console.log(modules);
