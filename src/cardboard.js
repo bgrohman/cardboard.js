@@ -1,9 +1,10 @@
 /**
- * Synchronous Asynchronous Module Definition (AMD) Implementation
+ * CommonJS Module Implementation
  *
- * Creates an AMD define function for use in browser environments. Unlike AMD,
- * this define function requires a module id. Due to the synchronous nature
- * of cardboard.js, modules must be defined in order of use.
+ * Creates a CommonJS module defintion implementation for use in browser 
+ * environments.
+ *
+ * @see https://github.com/bgrohman/cardboard.js for details.
  *
  * @author  Bryan Grohman
  */
