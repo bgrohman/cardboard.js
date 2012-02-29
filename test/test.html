@@ -137,6 +137,12 @@ test('redefining a module', function() {
     notEqual(oldFoo, require('foo')); 
     notEqual(oldFoo.f, require('foo').f); 
     equal(require('foo').f, 1);
+
+    define('foo', function() {
+        exports.g = 2;
+    });
+
+    equal(require('foo').f, undefined);
 });
 
 </script>
